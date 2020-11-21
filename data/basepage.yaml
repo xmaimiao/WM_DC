@@ -13,8 +13,8 @@ docker_env:
   mo: "https://wm-dc.must.edu.mo/"
 default: dev
 
-#uat密码wemust@Better  正式站：wemust@prod
-dev: {username: test308,password: wemust@dev}
-uat: {username: test38-test,password: wemust@2020}
-mo: {username: test38-test,password: wemust@2020}
+#uat密码  正式站：
+dev: {username: test308,password: }
+uat: {username: test38-test,password: }
+mo: {username: test38-test,password: }
 
