@@ -1,0 +1,7 @@
+goto_role_management:
+  - by: xpath
+    locator: '//*[@class="icon iconfont icon-shujuzhongxin-jiaoseguanli"]/..'
+    action: wait_click
+  - by: xpath
+    locator: '//*[@class="icon iconfont icon-shujuzhongxin-jiaoseguanli"]/..'
+    action: click

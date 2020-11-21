@@ -1,0 +1,15 @@
+goto_Platform_For_Academia_Service:
+  - by: xpath
+    locator: '//*[contains(text(),"教學服務平臺 Platform For Academia Service ")]'
+    action: wait_click
+  - by: xpath
+    locator: '//*[contains(text(),"教學服務平臺 Platform For Academia Service ")]'
+    action: click
+
+goto_Platform_For_Surport_Service:
+  - by: xpath
+    locator: '//*[contains(text(),"支援服務平臺 Platform For Surport Service")]'
+    action: wait_click
+  - by: xpath
+    locator: '//*[contains(text(),"支援服務平臺 Platform For Surport Service")]'
+    action: click

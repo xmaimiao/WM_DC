@@ -1,0 +1,15 @@
+give_exam_exam_plan:
+  - by: xpath
+    locator: '//*[contains(text(),"${memu}")]//ins'
+    action: click
+
+click_save:
+  - by: xpath
+    locator: 2
+    action: sleep
+  - by: xpath
+    locator: '//*[@class="submit"]'
+    action: click
+  - by: xpath
+    locator: '//*[@class="item"]/a'
+    action: ele_status

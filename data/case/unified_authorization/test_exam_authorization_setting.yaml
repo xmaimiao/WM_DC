@@ -1,0 +1,5 @@
+setup_datas: {username: test38-test,password: wemust@Better,application: 考試}
+test_exam_authorization_setting:
+  - {username: test38-test,password: wemust@Better,role: 20181219崗位三級b,application: 考試PC,memu: 排考計畫,expect: True}
+#test_get_Z_M_course_teachername:
+#  - {username: test38-test,password: wemust@Better,application: 考試,memu: 教師課表(本科),year: 2020,month: 9,day: 23,course_type: 網課,week: 三,course_num: 2,expect: "張鋒,徐懿"}

@@ -1,0 +1,28 @@
+search_role_management:
+  - by: xpath
+    locator: '//*[@class="input"]'
+    action: click
+  - by: xpath
+    locator: '//*[@class="input"]'
+    action: clear
+  - by: xpath
+    locator: '//*[@class="input"]'
+    action: send
+    value: ${role}
+  - by: xpath
+    locator: '//*[@class="btn"]'
+    action: click
+  - by: xpath
+    locator: '//*[contains(text(),"${role}")]'
+    action: wait
+  - by: xpath
+    locator: '//*[contains(text(),"${role}")]'
+    action: click
+
+the_role_permission_setting:
+  - by: xpath
+    locator: '//*[@class="col-lg-9 container_main contentin"]/div//a[3]'
+    action: wait
+  - by: xpath
+    locator: '//*[@class="col-lg-9 container_main contentin"]/div//a[3]'
+    action: click

@@ -1,0 +1,187 @@
+edit_password:
+#點擊選中本地認證
+  - by: xpath
+    locator: '//*[contains(text(),"是否本地認證")]/../span[2]//ins'
+    action: click
+#傳入密碼
+  - by: xpath
+    locator: '//*[@name="pwd"]'
+    action: wait_click
+  - by: xpath
+    locator: '//*[@name="pwd"]'
+    action: click
+  - by: xpath
+    locator: '//*[@name="pwd"]'
+    action: clear
+  - by: xpath
+    locator: '//*[@name="pwd"]'
+    action: send
+    value: ${reset_psd}
+
+edit_name:
+  - by: xpath
+    locator: '//*[@name="nickname"]'
+    action: click
+  - by: xpath
+    locator: '//*[@name="nickname"]'
+    action: clear
+  - by: xpath
+    locator: '//*[@name="nickname"]'
+    action: send
+    value: ${name}
+
+edit_enname:
+  - by: xpath
+    locator: '//*[@name="enName"]'
+    action: click
+  - by: xpath
+    locator: '//*[@name="enName"]'
+    action: clear
+  - by: xpath
+    locator: '//*[@name="enName"]'
+    action: send
+    value: ${enname}
+
+edit_user:
+  - by: xpath
+    locator: '//*[@name="username"]'
+    action: click
+  - by: xpath
+    locator: '//*[@name="username"]'
+    action: clear
+  - by: xpath
+    locator: '//*[@name="username"]'
+    action: send
+    value: ${user}
+
+get_post:
+  - by: xpath
+    locator: 2
+    action: sleep
+  - by: xpath
+    locator: '//*[contains(text(),"崗位") and @class="label"]/../span[2]/div/span/span[1]'
+    action: text
+
+edit_post_s:
+  - by: xpath
+    locator: 'return document.getElementsByClassName("ico")[0]'
+    action: execute_js_click
+  - by: xpath
+    locator: 2
+    action: sleep
+  - by: xpath
+    locator: 'return document.getElementById("${post_id}_anchor")'
+    action: execute_js_scroll
+  - by: xpath
+    locator: '//*[@id="${post_id}_anchor"]/i[1]'
+    action: click
+
+edit_staffNo:
+  - by: xpath
+    locator: '//*[@name="staffNo"]'
+    action: click
+  - by: xpath
+    locator: '//*[@name="staffNo"]'
+    action: clear
+  - by: xpath
+    locator: '//*[@name="staffNo"]'
+    action: send
+    value: ${staffNo}
+
+get_faculy:
+  - by: xpath
+    locator: '//*[contains(text(),"學院")]/../../span/span[1]'
+    action: wait
+  - by: xpath
+    locator: '//*[contains(text(),"學院")]/../../span/span[1]'
+    action: text
+
+edit_faculy:
+  - by: xpath
+    locator: 'return document.getElementsByClassName("ico")[1]'
+    action: execute_js_click
+  - by: xpath
+    locator: 2
+    action: sleep
+  - by: xpath
+    locator: '//*[@id="group_create"]//a[@id="${faculy_id}_anchor"]'
+    action: click
+
+get_program:
+  - by: xpath
+    locator: 1
+    action: sleep
+  - by: xpath
+    locator: '//*[@name="programName"]'
+    action: wait_display
+
+edit_program:
+  - by: xpath
+    locator: 'document.getElementsByName("programName")[0].value="${program}"'
+    action: execute_js
+
+
+get_programCode:
+  - by: xpath
+    locator: '//*[contains(text(),"課程編碼")]/../input'
+    action: wait_display
+
+edit_programCode:
+  - by: xpath
+    locator: 'document.getElementsByName("programCode")[0].value="${programCode}"'
+    action: execute_js
+
+get_entrance_term:
+  - by: xpath
+    locator: '//*[@name="admIntake"]/../p'
+    action: wait_display
+
+edit_entrance_term:
+  - by: xpath
+    locator: '//*[@name="admIntake"]/..//i'
+    action: click
+  - by: xpath
+    locator: 1
+    action: sleep
+  - by: xpath
+    locator: '//*[@name="admIntake"]/../div//ul//label[contains(text(),"${entrance_term}")]'
+    action: click
+
+get_entrance_date:
+  - by: xpath
+    locator: '//*[@name="admDate"]'
+    action: wait_display
+
+
+edit_entrance_date:
+  - by: xpath
+    locator: '//*[@name="admDate"]'
+    action: click
+  - by: xpath
+    locator: 'document.getElementsByName("admDate")[0].value = "${entrance_date}"'
+    action: execute_js
+
+edit_type_of_accommodation:
+  - by: xpath
+    locator: '//*[contains(text(),"住宿類型")]/../span[3]/div/ins'
+    action: click
+
+get_sortOrder:
+# 獲取排序的值
+  - by: xpath
+    locator: '//*[contains(text(),"排序") and @class="label"]/../input'
+    action: wait_display
+
+edit_sortOrder:
+# 若沒有，填寫排序
+  - by: xpath
+    locator: 'document.getElementsByName("sortOrder")[0].value="${sortorder}";'
+    action: execute_js
+
+click_save:
+  - by: xpath
+    locator: 2
+    action: sleep
+  - by: xpath
+    locator: '//*[@class="submit"]'
+    action: click

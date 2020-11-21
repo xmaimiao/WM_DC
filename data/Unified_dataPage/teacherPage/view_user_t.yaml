@@ -1,0 +1,9 @@
+get_email:
+  - by: xpath
+    locator: '//*[contains(text(),"電子郵箱：")]/../span[2]'
+    action: text
+
+close_page:
+  - by: xpath
+    locator: '//*[@id="cboxClose"]'
+    action: click

@@ -1,0 +1,9 @@
+goto_teacher:
+  - by: xpath
+    locator: '//*[@class="nav_left"]/li[2]/ul/li[1]/a/span'
+    action: click
+
+goto_student:
+  - by: xpath
+    locator: '//*[@class="nav_left"]/li[2]/ul/li[2]/a/span'
+    action: click

@@ -1,0 +1,22 @@
+goto_unified_data:
+  - by: xpath
+    locator: '//*[@class="nav"]/li[2]/a'
+    action: click
+
+goto_unified_authorization:
+  - by: xpath
+    locator: '//*[@class="nav"]/li[1]/a'
+    action: wait_click
+  - by: xpath
+    locator: '//*[@class="nav"]/li[1]/a'
+    action: click
+
+quit:
+  -
+    by: xpath
+    locator: '//*[@class="link-button user-info"]/span'
+    action: click
+  -
+    by: xpath
+    locator: '//*[@class="link-button user-info"]/../../div[2]//li[last()]'
+    action: click

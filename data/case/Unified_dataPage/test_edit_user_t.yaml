@@ -1,0 +1,51 @@
+#uat密码wemust@Better  正式站：wemust@prod
+dev: {username: test308,password: wemust@dev}
+uat: {username: test38-test,password: wemust@2020}
+mo: {username: test38-test,password: wemust@prod}
+
+test_edit_post_user_t:
+#uat
+  - {username: admin,password: wemust@dev,user_t: hmsu,post_id: "250",post: 20190111崗位一級, expect: 20190111崗位一級}
+#dev
+#  - {username: admin,password: wemust@dev,user_t: test304,post_id: "244",post: 20181219崗位一級}
+#  - {username: admin,password: wemust@dev,user_t: test305,post_id: "244",post: 20181219崗位一級}
+#  - {username: admin,password: wemust@dev,user_t: test306,post_id: "244",post: 20181219崗位一級}
+
+test_edit_leave_type_user_t:
+  - {username: admin,password: wemust@dev,user_t: test309, leave_type: 博士後,expect: 20181219崗位一級}
+
+test_edit_leave_info_user_t:
+  - {username: admin,password: wemust@dev,user_t: test309,post_id: "244",post: 20181219崗位一級,
+     leave_type: 博士後,entrydate: 2020-07-01,contract_start_date: 2020-07-01,contract_end_date: 2021-07-30,expect: 20181219崗位一級}
+
+test_edit_password_user_t:
+  - {username: admin,password: wemust@dev,user_t: lliu,reset_psd: wemust@dev,expect: lliu}
+#  - {username: admin,password: wemust@dev,user_t: mai2,reset_psd: wemust@2020,expect: mai2}
+#  - {username: admin,password: wemust@dev,user_t: test38-test,reset_psd: wemust@2020,expect: test38-test,}
+  - {username: admin,password: wemust@dev,user_t: kltong,reset_psd: wemust@dev,expect: kltong}
+  - {username: admin,password: wemust@dev,user_t: jchen,reset_psd: wemust@dev,expect: jchen}
+
+test_edit_email_t:
+#  - {username: admin,password: wemust@dev,user_t: mai2,email: 1@qq.com}
+#  - {username: admin,password: wemust@dev,user_t: mai3,email: 1@qq.com}
+#  - {username: admin,password: wemust@dev,user_t: test15,email: 1@qq.com}
+#  - {username: admin,password: wemust@dev,user_t: test300,email: 765120214@qq.com}
+#  - {username: admin,password: wemust@dev,user_t: test301,email: 1825498584@qq.com}
+#  - {username: admin,password: wemust@dev,user_t: test302,email: 18218813163@163.com}
+  - {username: admin,password: wemust@dev,user_t: test304,email: 765120214@qq.com}
+  - {username: admin,password: wemust@dev,user_t: test305,email: 1825498584@qq.com}
+#  - {username: admin,password: wemust@dev,user_t: test306,email: 18218813163@163.com}
+  - {username: admin,password: wemust@dev,user_t: test12,email: 18218813163@163.com}
+
+test_get_email_t:
+  - {username: admin,password: wemust@dev,user_t: test304}
+  - {username: admin,password: wemust@dev,user_t: test305}
+  - {username: admin,password: wemust@dev,user_t: test306}
+  - {username: admin,password: wemust@dev,user_t: test12}
+#  - {username: admin,password: wemust@dev,user_t: test17}
+#  - {username: admin,password: wemust@dev,user_t: test15}
+
+test_get_post_t:
+  - { username: admin,password: wemust@dev,user_t: test304 ,expect: '崗位:'}
+  - { username: admin,password: wemust@dev,user_t: test305 ,expect: '崗位:'}
+  - { username: admin,password: wemust@dev,user_t: test306 ,expect: '崗位:'}

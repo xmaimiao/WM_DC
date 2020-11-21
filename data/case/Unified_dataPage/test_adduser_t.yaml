@@ -1,0 +1,3 @@
+setup_datas: {username: test38-test,password: wemust@prod,application: 課表}
+test_add_user:
+  - {username: admin,password: wemust@dev,name: 0929測試2,enname: 0929ceshi2,staffno: 2020092902,username_t: test092902,port_id: 259,email: 23,group: 大學基金會(MUSTF),tel: 1509853,groupSortOrder: 123,expect: 添加用戶成功！}

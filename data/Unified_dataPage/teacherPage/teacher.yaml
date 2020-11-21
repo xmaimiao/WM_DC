@@ -1,0 +1,61 @@
+goto_add_user_t:
+  - by: xpath
+    locator: '//*[@class="nav_left"]/li[2]/ul/li[1]//span'
+    action: click
+
+search_user_t:
+  - by: xpath
+    locator: '//*[@class="input-group"]/input'
+    action: click
+  - by: xpath
+    locator: '//*[@class="input-group"]/input'
+    action: send
+    value: ${user_t}
+  - by: xpath
+    locator: '//*[@class="img-wrap"]/img'
+    action: click
+
+edit_the_first_user_t:
+#調整了定位元素，注釋掉等待時常
+#  - by:
+#    locator: 2
+#    action: sleep
+  - by: xpath
+    locator: '//*[@id="DataTables_Table_0"]/tbody/tr[1]/td[contains(text(),"${user_t}")][1]/../td[last()]//li[2]/a'
+    action: click
+
+view_the_first_user_t:
+#調整了定位元素，注釋掉等待時常
+#  - by:
+#    locator: 2
+#    action: sleep
+  - by: xpath
+    locator: '//*[@id="DataTables_Table_0"]/tbody/tr[1]/td[contains(text(),"${user_t}")][1]/../td[last()]//li[1]/a'
+    action: click
+
+get_the_first_user_t_post:
+  - by: xpath
+    locator: 1
+    action: sleep
+  - by: xpath
+    locator: '//*[@id="DataTables_Table_0"]/tbody/tr[1]/td[contains(text(),"${user_t}")][1]/../td[6]'
+    action: text
+
+get_the_first_user_t_user:
+  - by: xpath
+    locator: 1
+    action: sleep
+  - by: xpath
+    locator: '//*[@id="DataTables_Table_0"]/tbody/tr[1]/td[contains(text(),"${user_t}")][1]/../td[4]'
+    action: text
+
+get_add_ele:
+  - by: xpath
+    locator: '//*[@class="nav_left"]/li[2]/ul/li[1]//span'
+    action: ele_status
+
+get_the_fir_row_text:
+  - by: xpath
+    locator: '//*[@id="DataTables_Table_0"]//tbody/tr[1]/td[1]'
+    action: wait_display
+

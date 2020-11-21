@@ -1,0 +1,7 @@
+goto_examPC:
+  - by: xpath
+    locator: '//*[contains(text(),"${application}")]/span'
+    action: wait
+  - by: xpath
+    locator: '//*[contains(text(),"${application}")]/span'
+    action: click

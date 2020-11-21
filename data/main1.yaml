@@ -1,0 +1,22 @@
+goto_unified_data:
+  - by: xpath
+    locator: '//*[@class="nav"]/li[2]/a'
+    action: click
+
+close_adduser_pop:
+  - by: xpath
+    locator: '//*[ @class="layui-layer-btn0"]'
+    action: click
+
+goto_unified_authorization:
+  - by: xpath
+    locator: '//*[@class="nav"]/li[1]/a'
+    action: wait_click
+  - by: xpath
+    locator: '//*[@class="nav"]/li[1]/a'
+    action: click  cboxClose
+
+close_drawer:
+  - by: xpath
+    locator: '//*[@id="cboxClose"]'
+    action: wait_display

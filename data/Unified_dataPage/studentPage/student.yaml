@@ -1,0 +1,105 @@
+search_user_s:
+#定位查詢input框
+  - by: xpath
+    locator: '//*[@class="input-group"]/input'
+    action: wait_click
+  - by: xpath
+    locator: '//*[@class="input-group"]/input'
+    action: click
+  - by: xpath
+    locator: '//*[@class="input-group"]/input'
+    action: clear
+#輸入關鍵詞
+  - by: xpath
+    locator: '//*[@class="input-group"]/input'
+    action: send
+    value: ${user_s}
+#點擊查詢按鈕
+  - by: xpath
+    locator: '//*[@class="img-wrap"]/img'
+    action: click
+
+edit_the_first_user_s:
+#點擊第一條數據的編輯按鈕
+#調整了元素定位，等待時常由5s改爲3s
+  - by:
+    locator: 3
+    action: sleep
+  - by: xpath
+    locator: '//*[@id="DataTables_Table_0"]/tbody/tr[1]/td[contains(text(),"${user_s}")][1]/../td[last()]//li[2]/a'
+    action: click
+
+get_the_first_user_s_post:
+  - by: xpath
+    locator: 1
+    action: sleep
+  - by: xpath
+    locator: '//*[@id="DataTables_Table_0"]/tbody/tr[1]/td[contains(text(),"${user_s}")][1]/../td[6]'
+    action: text
+
+get_add_ele:
+  - by: xpath
+    locator: '//*[@class="col-lg-9 container_main contentin"]/div/div[1]/div//a'
+    action: ele_status
+
+get_current_total:
+  - by: xpath
+    locator: 4
+    action: sleep
+  - by: xpath
+    locator: '//*[@id="DataTables_Table_0"]//tr'
+    action: len
+
+get_the_first_username:
+#調整了元素定位，注釋掉等待時常
+#  - by: xpath
+#    locator: 4
+#    action: sleep
+  - by: xpath
+    locator: '//*[@id="DataTables_Table_0"]/tbody/tr[1]/td[contains(text(),"${user_s}")][1]/../td[4]'
+    action: text
+
+get_the_first_staffNo:
+#調整了元素定位，注釋掉等待時常
+#  - by: xpath
+#    locator: 4
+#    action: sleep
+  - by: xpath
+    locator: '//*[@id="DataTables_Table_0"]/tbody/tr[1]/td[contains(text(),"${user_s}")][1]/../td[5]'
+    action: text
+
+get_not_data_text:
+  - by: xpath
+    locator: 2
+    action: sleep
+#定位查詢input框
+  - by: xpath
+    locator: '//*[@class="input-group"]/input'
+    action: wait_click
+  - by: xpath
+    locator: '//*[@class="input-group"]/input'
+    action: click
+  - by: xpath
+    locator: '//*[@class="input-group"]/input'
+    action: clear
+#輸入關鍵詞
+  - by: xpath
+    locator: '//*[@class="input-group"]/input'
+    action: send
+    value: ${user_s}
+#點擊查詢按鈕
+  - by: xpath
+    locator: '//*[@class="img-wrap"]/img'
+    action: click
+
+  - by: xpath
+    locator: 4
+    action: sleep
+  - by: xpath
+    locator: '//*[@class="odd"]/td'
+    action: text
+
+get_the_fir_row_text:
+  - by: xpath
+    locator: '//*[@id="DataTables_Table_0"]//tbody/tr[1]/td[1]'
+    action: wait_display

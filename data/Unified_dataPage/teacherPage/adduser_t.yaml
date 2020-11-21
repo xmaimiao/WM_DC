@@ -1,0 +1,97 @@
+click_add:
+  - by: xpath
+    locator: '//*[@class="row-full-in"]/article/div/div/div/span/a'
+    action: click
+
+name:
+  - by: xpath
+    locator: '//*[@name="nickname"]'
+    action: send
+    value: ${name}
+
+enname:
+  - by: xpath
+    locator: '//*[@name="enName"]'
+    action: send
+    value: ${enname}
+
+
+staffno:
+  - by: xpath
+    locator: '//*[@name="staffNo"]'
+    action: send
+    value: ${staffno}
+
+
+username:
+  - by: xpath
+    locator: '//*[@name="username"]'
+    action: send
+    value: ${username}
+
+port:
+  - by: xpath
+    locator: '//span[contains(text(),"崗位") and @class="label"]/../div/span/span[1]'
+    action: click
+  - by: xpath
+    locator: '//*[@id="${port_id}"]'
+    action: click
+
+email:
+  - by: xpath
+    locator: '//*[@name="email"]'
+    action: send
+    value: ${email}
+
+group:
+  - by: xpath
+    locator: '//*[@class="t" and @title="請選擇"]'
+    action: click
+  - by: xpath
+    locator: '//*[@id="group_create_0"]//*[contains(text(),"${group}")]'
+    action: click
+
+tel:
+  - by: xpath
+    locator: '//*[@id="tel_0"]'
+    action: send
+    value: ${tel}
+
+
+groupSortOrder:
+  - by: xpath
+    locator: '//*[@id="groupSortOrder_0"]'
+    action: send
+    value: ${groupSortOrder}
+
+submit:
+  - by: xpath
+    locator: '//*[@class="submit"]'
+    action: click
+
+get_adduser_succeed:
+  - by: xpath
+    locator: '//*[@class="layui-layer-content"]'
+    action: text
+
+search_keywords:
+  - by: xpath
+    locator: '//*[@class="input-group"]/input'
+    action: clear
+  - by: xpath
+    locator: '//*[@class="input-group"]/input'
+    action: send
+    value: ${keywords}
+  - by: xpath
+    locator: '//*[@class="img-wrap"]/img'
+    action: click
+
+get_current_teacher_num:
+  - by: xpath
+    locator: '//table[@id="DataTables_Table_0"]//tr'
+    action: wait
+  - by: xpath
+    locator: '//table[@id="DataTables_Table_0"]//tr'
+    action: len
+
+

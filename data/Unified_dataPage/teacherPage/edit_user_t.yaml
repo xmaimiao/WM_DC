@@ -1,0 +1,98 @@
+get_exist_post:
+  - by: xpath
+    locator: '//*[@id="DataTables_Table_0_wrapper"]//tbody/tr[1]/td[last()-3]'
+    action: text
+
+edit_post:
+  - by: xpath
+    locator: 'return document.getElementsByClassName("ico")[0]'
+    action: execute_js_click
+  - by: xpath
+    locator: 2
+    action: sleep
+  - by: xpath
+    locator: 'return document.getElementById("${post_id}_anchor")'
+    action: execute_js_scroll
+  - by: xpath
+    locator: '//*[@id="${post_id}_anchor"]/i[1]'
+    action: click
+  - by: xpath
+    locator: 2
+    action: sleep
+
+edit_leave_type:
+  - by: xpath
+    locator: '//*[@name="typeId"]/../p/span'
+    action: click
+  - by: xpath
+    locator: '//*[@name="typeId"]/../div//*[contains(text(),"${leave_type}")]'
+    action: click
+
+
+edit_date_of_entry:
+  - by: xpath
+    locator: 'document.getElementById("creDate").value="${entrydate}"'
+    action: execute_js
+
+edit_contract_start_date:
+  - by: xpath
+    locator: 'document.getElementById("amsStartDate").value="${contract_start_date}"'
+    action: execute_js
+
+edit_contract_end_date:
+  - by: xpath
+    locator: 'document.getElementById("amsEndDate").value="${contract_end_date}"'
+    action: execute_js
+
+edit_password:
+  - by: xpath
+    locator: 4
+    action: sleep
+#點擊選中本地認證
+  - by: xpath
+    locator: '//*[contains(text(),"是否本地認證")]/../span[2]//ins'
+    action: click
+#傳入密碼
+  - by: xpath
+    locator: '//*[@name="pwd"]'
+    action: wait_click
+  - by: xpath
+    locator: '//*[@name="pwd"]'
+    action: click
+  - by: xpath
+    locator: '//*[@name="pwd"]'
+    action: clear
+  - by: xpath
+    locator: '//*[@name="pwd"]'
+    action: send
+    value: ${reset_psd}
+
+edit_email:
+  - by: xpath
+    locator: 4
+    action: sleep
+#等待直至该元素出现，可点击
+  - by: xpath
+    locator: '//*[@name="email"]'
+    action: wait_click
+  - by: xpath
+    locator: '//*[@name="email"]'
+    action: click
+  - by: xpath
+    locator: '//*[@name="email"]'
+    action: clear
+  - by: xpath
+    locator: '//*[@name="email"]'
+    action: send
+    value: ${email}
+
+get_email:
+#等待直至该元素出现,存在该元素则返回ele
+  - by: xpath
+    locator: '//*[@name="email"]'
+    action: wait_display
+
+click_save:
+  - by: xpath
+    locator: '//*[@class="submit"]'
+    action: click

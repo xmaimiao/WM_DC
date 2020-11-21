@@ -1,0 +1,33 @@
+test_edit_password_user_s:
+#  - {username: admin,password: wemust@dev,user_s: 1709853J-B411-0049,reset_psd: wemust@2020,sortorder: 122,expect: True}
+  - {username: admin,password: wemust@dev,user_s: 1709853J-B411-0049,reset_psd: wemust@dev,sortorder: 122,expect: True}
+test_edit_other_msg_s:
+  - {username: admin,password: wemust@dev,user_s: student3-test,user: ts1,enname: ts1,name: ts1,staffNo: 20200701-202007-01,expect: True}
+test_search_student_username:
+#uat崗位學生postid為299，dev為274
+  - {username: admin,password: wemust@dev,user_s: 1909853L-B111-0052}
+  - {username: admin,password: wemust@dev,user_s: 1909853J-I011-0051}
+  - {username: admin,password: wemust@dev,user_s: 1909853X-B111-0011}
+  - {username: admin,password: wemust@dev,user_s: 1909853Z-B411-0030}
+  - {username: admin,password: wemust@dev,user_s: 1909853J-B411-0062}
+
+test_edit_post_and_faculy:
+#  - {username: admin,password: wemust@dev,user_s: 1234567B-B011-1234,post_id: 299,faculy_id: 519,expect: True}
+  - {username: admin,password: wemust@dev,user_s: slrtest1,post_id: 299,faculy_id: 519,expect: True}
+  -
+test_edit_user_and_staffNo:
+- {username: admin,password: wemust@dev,user_s: student3-test,post_id: 274,faculy_id: 519,
+   name: student3-test,enname: student3-test,user: student3-test, staffNo: 20200701-202007-01,psd: wemust@2020,
+   program: abc,programCode: '123',sortOrder: 122,entrance_term: 2009,entrance_date: 2020-10-01,expect: student3-test}
+
+test_edit_user:
+- {username: admin,password: wemust@dev,user_s: 2019122601,post_id: 274,faculy_id: 519,
+   psd: wemust@2020,program: abc,programCode: '123',sortOrder: 122,entrance_term: 2009,
+   entrance_date: 2020-10-01,expect: student3-test}
+
+
+
+
+
+
+

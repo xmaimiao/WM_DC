@@ -1,0 +1,4 @@
+goto_user:
+  - by: xpath
+    locator: '//*[@class="nav_left"]/li[2]//i'
+    action: click
