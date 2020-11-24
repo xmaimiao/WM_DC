@@ -32,6 +32,14 @@ class Test_Edit_User_T:
             開啓調試端口啓用
             '''
             self.main = Main()
+        def teardown(self):
+            '''
+            開啓調試端口啓用
+            '''
+            try:
+                self.main.close_drawer()
+            except Exception as e:
+                pass
     else:
         def setup_class(self):
             '''
@@ -39,6 +47,17 @@ class Test_Edit_User_T:
             '''
             self.main = Main().goto_login(). \
                 username(self._setup_datas["username"]).password(self._setup_datas["password"]).save()
+
+
+        def teardown(self):
+            '''
+            關閉抽屜
+            :return:
+            '''
+            try:
+                self.main.close_drawer()
+            except Exception as e:
+                pass
 
         def teardown_class(self):
             '''
@@ -49,12 +68,12 @@ class Test_Edit_User_T:
     @pytest.mark.parametrize("data", test_edit_post_user_t_datas)
     def test_edit_post_user_t(self, data):
         '''
-        DC设置岗位,注意uat更改崗位前要等待>=5s，dev等待1s
+        DC设置岗位,注意uat更改崗位前要等待>=9s，dev等待1s
         '''
         result = self.main.goto_unified_data().\
             goto_user().goto_teacher().\
             search_user_t(data["user_t"]).\
-            edit_the_first_user_t(data["user_t"]).wait_sleep(5).\
+            edit_the_first_user_t(data["user_t"]).wait_sleep(9).\
             edit_post(data["post_id"],data["post"]).\
             click_save().get_the_first_user_t_post(data["user_t"])
         assert  data["post"] in result
@@ -94,13 +113,13 @@ class Test_Edit_User_T:
     @pytest.mark.parametrize("data", test_edit_password_user_t_datas)
     def test_edit_password_user_t(self, data):
         '''
-        DC修改登錄密碼
+        DC修改登錄密碼,uat打開編輯頁面等待元素出現需要>8s
         '''
         result = self.main.goto_unified_data(). \
             goto_user().goto_teacher(). \
             search_user_t(data["user_t"]). \
             edit_the_first_user_t(data["user_t"]). \
-            edit_password(data["reset_psd"]).\
+            wait_sleep(10).edit_password(self._setup_datas["password"]). \
             click_save().get_the_first_user_t_user(data["user_t"])
         assert data["expect"] == result
 
@@ -121,19 +140,21 @@ class Test_Edit_User_T:
     def test_get_email_t(self, data):
         '''
         DC获取系统邮箱
+        注意：uat打開抽屜定位到元素需要等待5s以上，若在獲取郵箱前等待，則獲取郵箱后無需等待
         '''
         result = self.main.goto_unified_data(). \
             goto_user().goto_teacher(). \
             search_user_t(data["user_t"]). \
             view_the_first_user_t(data["user_t"]). \
-            get_email(). \
+            wait_sleep(8).get_email(). \
             close_page().get_the_first_user_t_user(data["user_t"])
         assert data["user_t"] in result
+
 
     @pytest.mark.parametrize("data", test_get_post_t_datas)
     def test_get_post_t(self, data):
         '''
-        DC获取系统邮箱
+        DC獲取人員崗位
         '''
         result = self.main.goto_unified_data(). \
             goto_user().goto_teacher(). \

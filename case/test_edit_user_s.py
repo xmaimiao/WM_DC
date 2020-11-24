@@ -33,11 +33,14 @@ class Test_Edit_User_S:
             開啓調試端口啓用
             '''
             self.main = Main()
-        # def teardown(self):
-        #     '''
-        #     開啓調試端口啓用
-        #     '''
-        #     self.main.close_drawer()
+        def teardown(self):
+            '''
+            開啓調試端口啓用
+            '''
+            try:
+                self.main.close_drawer()
+            except Exception as e:
+                pass
 
     else:
         def setup_class(self):
@@ -48,7 +51,14 @@ class Test_Edit_User_S:
                 username(self._setup_datas["username"]).password(self._setup_datas["password"]).save()
 
         def teardown(self):
-            self.main.close_drawer()
+            '''
+            判斷，若抽屜沒關閉，則先關閉抽屜在進行下一個用例，否則會導致後續用例失敗
+            :return:
+            '''
+            try:
+                self.main.close_drawer()
+            except Exception as e:
+                pass
 
         def teardown_class(self):
             '''
@@ -65,7 +75,7 @@ class Test_Edit_User_S:
             goto_user().goto_student(). \
             search_user_s(data["user_s"]). \
             edit_she_first_user_s(data["user_s"]). \
-            edit_password(data["reset_psd"]).\
+            edit_password(self._setup_datas["password"]).\
             edit_sortOrder(data["sortorder"]).\
             click_save().get_add_ele()
         assert data["expect"] == result

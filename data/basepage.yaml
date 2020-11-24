@@ -4,17 +4,17 @@ switch:
   2: headless
   3: brower
   4: docker
-switch_default: 1
+switch_default: 2
 
 #docker容器環境切換：dev、uat、正式站
 docker_env:
   dev: "http://dc-admin.doocom.net"
   uat: "https://oa-wmtest.must.edu.mo:9443/dc"
   mo: "https://wm-dc.must.edu.mo/"
-default: dev
+default: uat
 
 #uat密码wemust@Better  正式站：wemust@prod
 dev: {username: test308,password: wemust@dev}
-uat: {username: test38-test,password: wemust@2020}
+uat: {username: test38-test,password: wemust*2020}
 mo: {username: test38-test,password: wemust@2020}
 
