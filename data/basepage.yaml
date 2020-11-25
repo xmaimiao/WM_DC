@@ -11,7 +11,7 @@ docker_env:
   dev: "http://dc-admin.doocom.net"
   uat: "https://oa-wmtest.must.edu.mo:9443/dc"
   mo: "https://wm-dc.must.edu.mo/"
-default: uat
+default: dev
 
 #uat密码wemust@Better  正式站：wemust@prod
 dev: {username: test308,password: wemust@dev}

@@ -51,4 +51,4 @@ test_get_post_t:
 #  - { username: admin,password: wemust@dev,user_t: test304 ,expect: '崗位:'}
 #  - { username: admin,password: wemust@dev,user_t: test305 ,expect: '崗位:'}
 #  - { username: admin,password: wemust@dev,user_t: test306 ,expect: '崗位:'}
-  - { username: admin,password: wemust@dev,user_t: test38-test ,expect: '崗位:'}
+  - { username: admin,password: wemust@dev,user_t: mai3 ,expect: '崗位:'}
