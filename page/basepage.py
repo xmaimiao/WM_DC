@@ -195,6 +195,15 @@ class BasePage:
         js4 = "arguments[0].scrollIntoView();"
         self._driver.execute_script(js4, ele)
 
+    def find_ele_scroll(self,by, locator):
+        '''
+        滑動到元素可見
+        '''
+        logging.info(f"find_ele_scroll：{locator}")
+        ele = self._driver.find_element(by, locator)
+        js4 = "arguments[0].scrollIntoView();"
+        self._driver.execute_script(js4, ele)
+
     def wait_for_condition(self, condition, timeout=10):
         '''
         等待直到xxx條件成立
@@ -262,6 +271,8 @@ class BasePage:
                     self.execute_script(step["locator"])
                 if "execute_js_scroll" == action:
                     self.execute_script_scroll(step["locator"])
+                if "find_scroll" == action:
+                    self.find_ele_scroll(step["by"], step["locator"])
                 if "wait_and_iframe" == action:
                     self.wait_swith_to_iframe(step["by"], step["locator"])
 

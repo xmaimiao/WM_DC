@@ -18,12 +18,14 @@ class Test_Edit_User_T:
     with open(test_edit_user_t_dir, encoding="utf-8") as f:
         datas = yaml.safe_load(f)
         test_edit_post_user_t_datas = datas["test_edit_post_user_t"]
+        test_edit_post_name_user_t_datas = datas["test_edit_post_name_user_t"]
         test_edit_leave_type_user_t_datas = datas["test_edit_leave_type_user_t"]
         test_edit_leave_info_user_t_datas = datas["test_edit_leave_info_user_t"]
         test_edit_password_user_t_datas = datas["test_edit_password_user_t"]
         test_edit_email_t_datas = datas["test_edit_email_t"]
         test_get_email_t_datas = datas["test_get_email_t"]
         test_get_post_t_datas = datas["test_get_post_t"]
+
     _setup_datas = get_env()
     _working = _get_working()
     if _working == "port":
@@ -68,7 +70,7 @@ class Test_Edit_User_T:
     @pytest.mark.parametrize("data", test_edit_post_user_t_datas)
     def test_edit_post_user_t(self, data):
         '''
-        DC设置岗位,注意uat更改崗位前要等待>=9s，dev等待1s
+        DC设置岗位,注意uat更改崗位前要等待>=9s，dev等待1s,传参是岗位id
         '''
         result = self.main.goto_unified_data().\
             goto_user().goto_teacher().\
@@ -78,11 +80,25 @@ class Test_Edit_User_T:
             click_save().get_the_first_user_t_post(data["user_t"])
         assert  data["post"] in result
 
+    @pytest.mark.parametrize("data", test_edit_post_name_user_t_datas)
+    def test_edit_post_name_user_t(self, data):
+        '''
+        DC设置岗位,注意uat更改崗位前要等待>=9s，dev等待1s,传参是岗位名称
+        '''
+        result = self.main.goto_unified_data().\
+            goto_user().goto_teacher().\
+            search_user_t(data["user_t"]).\
+            edit_the_first_user_t(data["user_t"]).wait_sleep(10).\
+            edit_post_name(data["post_name"]).\
+            click_save().get_the_first_user_t_post(data["user_t"])
+        for post in data["post_name"]:
+            assert  post not in result
+
 
     @pytest.mark.parametrize("data", test_edit_leave_type_user_t_datas)
     def test_edit_leave_type_user_t(self, data):
         '''
-        DC设置休假类型(最好請假應用中設置，若存在包含關係則DC會設置出錯)
+        DC设置休假类型
         '''
         result = self.main.goto_unified_data(). \
             goto_user().goto_teacher(). \

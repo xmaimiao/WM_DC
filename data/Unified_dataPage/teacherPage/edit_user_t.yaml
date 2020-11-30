@@ -16,9 +16,20 @@ edit_post:
   - by: xpath
     locator: '//*[@id="${post_id}_anchor"]/i[1]'
     action: click
+
+edit_post_name:
   - by: xpath
-    locator: 2
+    locator: 'return document.getElementsByClassName("ico")[0]'
+    action: execute_js_click
+  - by: xpath
+    locator: 1
     action: sleep
+  - by: xpath
+    locator: '//a[contains(text(),"${post_name}")]/i[2]'
+    action: find_scroll
+  - by: xpath
+    locator: '//a[contains(text(),"${post_name}")]/i[1]'
+    action: click
 
 edit_leave_type:
   - by: xpath

@@ -10,6 +10,7 @@ class Edit_User_T(BasePage):
         self.sleep(sleeps)
         return self
 
+
     def edit_post(self, post_id,post):
         '''
         添加崗位，傳進來的參數為崗位id
@@ -21,6 +22,18 @@ class Edit_User_T(BasePage):
             pass
         else:
             self.step(edit_user_t_dir, "edit_post")
+        return self
+
+    def edit_post_name(self, post_name_list):
+        '''
+        传进来的岗位名称数组
+        取消勾选岗位用
+        '''
+        exist_post = self.step(edit_user_t_dir, "get_exist_post")
+        for post_name in post_name_list:
+            self._params["post_name"] = post_name
+            if post_name in exist_post:
+                self.step(edit_user_t_dir, "edit_post_name")
         return self
 
     def edit_leave_type(self,leave_type):

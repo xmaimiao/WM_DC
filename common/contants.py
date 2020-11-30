@@ -37,6 +37,8 @@ test_edit_user_s_dir = os.path.join(base_dir,'data/case/Unified_dataPage/test_ed
 
 test_search_student_dir = os.path.join(base_dir,'data/case/Unified_dataPage/test_search_student.yaml')
 
+test_user_t_post_and_psd_dir = os.path.join(base_dir,'data/case/Unified_dataPage/test_user_t_post_and_psd.yaml')
+
 
 # 统一授权
 

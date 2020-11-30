@@ -5,7 +5,7 @@ def test_create_data():
     '''
     生成列表數據：1.列表生成器
     '''
-    data = (("0924測試0"+str(x),
+    data = (("1130測試0"+str(x),
              "0924ceshi0"+str(x),
              "202009240" +str(x),
              "test09240" +str(x),

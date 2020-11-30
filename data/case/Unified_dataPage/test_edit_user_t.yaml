@@ -1,12 +1,15 @@
 test_edit_post_user_t:
 #uat
-  - {username: admin,password: wemust@dev,user_t: test304,post_id: "250",post: 20190111崗位一級, expect: 20190111崗位一級}
-  - {username: admin,password: wemust@dev,user_t: test305,post_id: "250",post: 20190111崗位一級, expect: 20190111崗位一級}
-  - {username: admin,password: wemust@dev,user_t: test306,post_id: "250",post: 20190111崗位一級, expect: 20190111崗位一級}
+#  - {username: admin,password: wemust@dev,user_t: test304,post_id: "250",post: 20190111崗位一級, expect: 20190111崗位一級}
+#  - {username: admin,password: wemust@dev,user_t: test305,post_id: "250",post: 20190111崗位一級, expect: 20190111崗位一級}
+#  - {username: admin,password: wemust@dev,user_t: test306,post_id: "250",post: 20190111崗位一級, expect: 20190111崗位一級}
 #dev
 #  - {username: admin,password: wemust@dev,user_t: test304,post_id: "244",post: 20181219崗位一級}
 #  - {username: admin,password: wemust@dev,user_t: test305,post_id: "244",post: 20181219崗位一級}
-#  - {username: admin,password: wemust@dev,user_t: test306,post_id: "244",post: 20181219崗位一級}
+  - {username: admin,password: wemust@dev,user_t: test306,post_id: "244",post: 20181219崗位一級}
+
+test_edit_post_name_user_t:
+  - {username: admin,password: wemust@dev,user_t: test307,post_name: ["系統管理员","科大校長","房間設備審批-avcontrol","超級管理員","一级岗位hhb","外判人員"]}
 
 test_edit_leave_type_user_t:
   - {username: admin,password: wemust@dev,user_t: test309, leave_type: 博士後,expect: 20181219崗位一級}
